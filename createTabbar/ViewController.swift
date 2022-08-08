@@ -7,13 +7,19 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class FirstViewController: UIViewController {
 
+    @IBOutlet weak var textLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        if navigationController?.tabBarItem.tag == 0 {
+            textLabel.text = "左"
+        } else {
+            textLabel.text = "右"
+        }
     }
-
-
 }
 
