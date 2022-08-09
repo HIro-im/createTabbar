@@ -7,6 +7,12 @@
 
 import UIKit
 
+enum selectedTab: Int {
+    case isLeft = 0
+    case isRight = 1
+    
+}
+
 final class FirstViewController: UIViewController {
 
     @IBOutlet weak var textLabel: UILabel!
@@ -15,10 +21,14 @@ final class FirstViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        if navigationController?.tabBarItem.tag == 0 {
+        switch navigationController?.tabBarItem.tag {
+        case selectedTab.isLeft.rawValue:
             textLabel.text = "左"
-        } else {
+        case selectedTab.isRight.rawValue:
             textLabel.text = "右"
+        default:
+            // たどり着くはずがないが一旦仮置
+            print("another")
         }
     }
 }
